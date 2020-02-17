@@ -1,0 +1,50 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #fff;
+  min-height: 100vh;
+  width: 20vw;
+  margin: 0 auto;
+  font-size: calc(10px + 2vmin);
+  color: black;
+}
+
+@media only screen and (max-width: 768px) {
+  .App-header { 
+    width: 80vw;
+  };
+};
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.money {
+  font-size: 5em;
+}
+
+.marginTop {
+  margin-top: 20px;
+}
