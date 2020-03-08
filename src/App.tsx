@@ -6,7 +6,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-          <span className="money" role="img" aria-label="money-with-wings">💸</span>
+          <span className="title" role="img" aria-label="money-with-wings">💸Stock Math💸</span>
           <StockMath />
       </header>
     </div>

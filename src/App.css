@@ -41,10 +41,9 @@
   }
 }
 
-.money {
-  font-size: 5em;
-}
-
-.marginTop {
-  margin-top: 20px;
+.title {
+  display: block;
+  margin: 10px 0;
+  font-size: 1.3em;
+  font-family: monospace;
 }

@@ -1,19 +1,24 @@
 import React, { useState } from 'react';
-import { TextField } from '@material-ui/core';
+import { Result } from './Result';
+
+import {
+    TextField,
+    Radio,
+    InputAdornment,
+    RadioGroup,
+    FormControlLabel,
+    FormControl,
+    FormLabel,
+    Button
+} from '@material-ui/core';
+
+import {
+    MoneyOutlined,
+    TrendingDown,
+    TrendingUp,
+    ScheduleOutlined,
+} from '@material-ui/icons';
 import { createStyles, makeStyles } from '@material-ui/core/styles';
-import MoneyOutlinedIcon from '@material-ui/icons/MoneyOutlined';
-import TrendingDownIcon from '@material-ui/icons/TrendingDown';
-import TrendingUpIcon from '@material-ui/icons/TrendingUp';
-import ScheduleOutlinedIcon from '@material-ui/icons/ScheduleOutlined';
-import InputAdornment from '@material-ui/core/InputAdornment';
-
-import Radio from '@material-ui/core/Radio';
-import RadioGroup from '@material-ui/core/RadioGroup';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import FormControl from '@material-ui/core/FormControl';
-import FormLabel from '@material-ui/core/FormLabel';
-
-import Button from '@material-ui/core/Button';
 
 // TODO: Move to enums
 enum AccountType {
@@ -29,9 +34,6 @@ const useStyles = makeStyles(() =>
     marginTop: {
       marginTop: '20px',
     },
-    result: {
-        minHeight: '70px',
-    }
   }),
 );
 
@@ -107,11 +109,7 @@ export function StockMath () {
     // TODO: Make individual components
     return (
         <>
-            <div className={classes.result}>
-                {result ?
-                    `After ${years} years you will have ${new Intl.NumberFormat('sv-SE', { style: 'currency', currency: 'SEK' }).format(result)}`
-                        : <div className={classes.result} />}
-            </div>
+            <Result result={result} years={years} />
             <FormControl component="fieldset">
                 <FormLabel component="legend">Account type:</FormLabel>
                 <RadioGroup aria-label="accountType" name="accountType" value={accountType} onChange={handleAccountTypeChange}>
@@ -135,7 +133,7 @@ export function StockMath () {
                     {
                         startAdornment: (
                             <InputAdornment position="start">
-                                <MoneyOutlinedIcon />
+                                <MoneyOutlined />
                             </InputAdornment>
                         ),
                         endAdornment: (
@@ -163,7 +161,7 @@ export function StockMath () {
                     {
                         startAdornment: (
                             <InputAdornment position="start">
-                                <MoneyOutlinedIcon />
+                                <MoneyOutlined />
                             </InputAdornment>
                         ),
                         endAdornment: (
@@ -191,7 +189,7 @@ export function StockMath () {
                     {
                         startAdornment: (
                             <InputAdornment position="start">
-                                {yieldPerYear > 0 ? <TrendingUpIcon /> : <TrendingDownIcon />}
+                                {yieldPerYear > 0 ? <TrendingUp /> : <TrendingDown />}
                             </InputAdornment>
                         ),
                         endAdornment: (
@@ -220,7 +218,7 @@ export function StockMath () {
                     {
                         startAdornment: (
                             <InputAdornment position="start">
-                                <ScheduleOutlinedIcon />
+                                <ScheduleOutlined />
                             </InputAdornment>
                         ),
                         inputProps: { 
